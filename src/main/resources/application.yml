@@ -1,0 +1,21 @@
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      client:
+        registration:
+          spotify-client:
+            client-id: 269b635ef0c14c6a823ce443d90ea186
+            client-secret: 7d63ff91c081416897802eb984af84ec
+            scope: playlist-read-private,playlist-modify-private
+            provider: spotify-provider
+            redirect-uri: http://localhost:8080/login/oauth2/code/spotify-client
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+        provider:
+          spotify-provider:
+            token-uri: https://accounts.spotify.com/api/token
+            authorization-uri: https://accounts.spotify.com/authorize?show_dialog=false
+            user-info-uri: https://api.spotify.com/v1/me
+            user-name-attribute: id

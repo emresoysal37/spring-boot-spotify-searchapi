@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <title>Spring Boot Spotify</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div sec:authorize="isAuthenticated()" class="container">
+	<h4>Lütfen dinlemek istediğiniz müzik türünü giriniz</h4>
+    <form action="#" th:action="@{/tracks/}" method="post">
+    <p><input name="myid" type="text" th:value="*{myid}">
+  	<p><input type="submit" value="Ara"/>
+   	</form>
+</div>
+</body>
+</html>

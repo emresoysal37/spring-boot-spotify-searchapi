@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Most Popular 10 Tracks</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<span th:if="${#lists.isEmpty(songs)}">No results</span>
+    		<table class="table table-responsive table-bordered table-striped">
+        		<thead>
+        			<tr>
+        				<th>Artist Name</th>
+        				<th>Track Name</th>
+        				<th>Album Cover </th>
+        				<th>Link to The 30 Seconds Preview Url</th>
+        			</tr>
+        		</thead>
+       			<tbody>
+       				<tr th:each="song : ${songs}">
+       		    		<td th:text="${song.artistName}"/>
+       		     		<td th:text="${song.songName}"/>
+       		    		<td><img th:src="@{${song.imageUrl}}"/></td>
+           				<td><a th:href="${song.previewUrl}" target="_blank">Link</a></td>
+      				</tr>
+      			</tbody>
+    		</table>
+		</div>
+	</div>
+</body>
+</html>
