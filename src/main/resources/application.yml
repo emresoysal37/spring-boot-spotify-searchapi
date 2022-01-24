@@ -19,3 +19,5 @@ spring:
             authorization-uri: https://accounts.spotify.com/authorize?show_dialog=false
             user-info-uri: https://api.spotify.com/v1/me
             user-name-attribute: id
+server
+  port: 8085
